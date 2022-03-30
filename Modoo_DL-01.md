@@ -50,9 +50,10 @@ ML regression model에 집어넣어서, X가 몇 인지 입력하면 Y(결과) �
 이하 tf.  
 google에서 만든 open source sw library  
 현재 tf2(2.8.0)까지 나왔다.  
-얘는 우리가 Data flow graph에 따른 연산을 하거나, 그에 따른 작업 결과물(return)을 얻을 수 있게 하는 친구다.  
-설치방법은 다음과 같다.  
-0. 파이썬과 VSCode가 설치되어있다고 가정. 혹은 colab 사용
+얘는 우리가 Data flow graph에 따른 연산을 하거나, 그에 따른 작업 결과물(return)을 얻을 수 있게 하는 친구다.<br>
+설치방법은 다음과 같다.<br>
+
+0. 파이썬과 VSCode가 설치되어있다고 가정. 혹은 colab 사용<br>
 1. 터미널에 `pip install --upgrade tensorflow-gpu` 입력. 자동설치.
   단, gpu가 없다면 `-gpu`는 빼고 설치하고, gpu는 nvidia의 cuda core를 사용하므로 nvidia cudart를 설치해줘야한다.  
   만약 VSCode에서 pip 인식을 못 한다면 "고급 시스템 설정보기" -> "환경변수" -> "path" 추가시켜주고 재부팅하자.
@@ -82,18 +83,18 @@ google에서 만든 open source sw library
 
 
 ![image](https://user-images.githubusercontent.com/91587463/160830268-52881d7c-2e8f-4044-9efd-39985033999d.png)
-이 작업은 그래프에 노드를 만들어서 실행시킨 것인데, 그래프를 만들어두고 실행시키고 싶다면 node를 placeholder로 만들면 된다.
+이 작업은 그래프에 노드를 만들어서 실행시킨 것인데, 그래프를 만들어두고 실행시키고 싶다면 node를 placeholder로 만들면 된다.  
 `node = tf.constant(3.0, tf.float32)` 처럼 만들면 노드를 만들어서 실행하는 방법,  
 `a = tf.placeholder(tf.float32)` 처럼 만들면 placeholder로 만들어둔 것. 이제 나중에 `feed_dict`를 이용해서 값을 넣을 수 있다. rank가 0인것도 가능하고 1인것도 가능.
 
 ## 3. Tensor, Ranks, Shapes, and Types.
 
 #### Ranks
-간단하게 몇 차원이냐를 의미하는 것.
+간단하게 몇 차원이냐를 의미하는 것.  
 `4` 이런건 rank 0, `[1, 2, 3]` 같은 vector는 rank 1, matrix는 rank 2, tensor(cube부터는 tensor라고 부른다)는 3, ... rank n 까지.
 
 #### Shape
-각각의 elements에 몇 개씩 들어있느냐를 의미한다. 
+각각의 elements에 몇 개씩 들어있느냐를 의미한다.  
 `t = [[1, 2, 3], [4, 5, 6]]`를 예로 들자면, 첫 번째 row에 column 3개 [1, 3], 두 번째 row에 column 3개 [2, 3], ...
 
 #### Data type
